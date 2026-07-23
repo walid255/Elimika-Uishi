@@ -1,0 +1,597 @@
+<!DOCTYPE html>
+<html lang="sw" class="h-full bg-gray-50">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elimika Uishi Tanzania - Fomu ya Usajili / Registration Form</title>
+    
+    <!-- Meta tags for SEO -->
+    <meta name="description" content="Fomu ya usajili kwa wanachama na wajasiriamali wa Elimika Uishi Tanzania. Kujitambua, Kujithamini, Kujisimamia.">
+    <meta name="keywords" content="Elimika Uishi, Tanzania, Usajili, Wajasiriamali, Wanawake, Uwezeshaji">
+    <meta name="author" content="Elimika Uishi Tanzania">
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            green: '#1b432e',      // Forest Green from logo
+                            greenLight: '#265d40',
+                            gold: '#b58933',       // Warm Gold from logo
+                            goldLight: '#d2ab56',
+                            cream: '#fcfbf9',      // Textured paper cream
+                            creamDark: '#f4f0ea',
+                            dark: '#1e293b'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Outfit', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif']
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        /* Custom smooth scroll and styles */
+        body {
+            font-family: 'Outfit', sans-serif;
+            overflow-x: hidden;
+        }
+        
+        .bg-slide {
+            transition: opacity 1.5s ease-in-out;
+            background-size: cover;
+            background-position: center;
+        }
+
+        /* Loading spinner */
+        .loader {
+            border-top-color: #b58933;
+            animation: spinner 1.5s linear infinite;
+        }
+
+        @keyframes spinner {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* Custom scrollbar for glassmorphic card */
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: rgba(255, 255, 255, 0.1);
+        }
+        ::-webkit-scrollbar-thumb {
+            background: rgba(27, 67, 46, 0.2);
+            border-radius: 3px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: rgba(27, 67, 46, 0.4);
+        }
+    </style>
+</head>
+<body class="h-full select-none">
+
+    <!-- Backgound Image Slider Container -->
+    <div class="fixed inset-0 z-0 overflow-hidden">
+        <!-- Background Overlay for contrast -->
+        <div class="absolute inset-0 bg-gradient-to-r from-brand-green/90 via-brand-green/80 to-black/60 md:to-black/40 z-10"></div>
+        
+        <!-- Background slides -->
+        <div id="slide1" class="absolute inset-0 bg-slide opacity-100" style="background-image: url('assets/images/women_tailoring.png');"></div>
+        <div id="slide2" class="absolute inset-0 bg-slide opacity-0" style="background-image: url('assets/images/women_cooking.png');"></div>
+        <div id="slide3" class="absolute inset-0 bg-slide opacity-0" style="background-image: url('assets/images/women_bakery.png');"></div>
+    </div>
+
+    <!-- Main Content Grid -->
+    <div class="relative z-20 min-h-screen grid grid-cols-1 lg:grid-cols-12">
+        
+        <!-- Left Side: Branding and Empowerment quotes (Desktop Only) -->
+        <div class="hidden lg:flex lg:col-span-5 flex-col justify-between p-12 text-white">
+            <!-- Top Branding -->
+            <div class="flex items-center gap-3">
+                <img src="logo.png" alt="Logo" class="h-20 w-auto bg-white/10 backdrop-blur-sm p-2 rounded-xl border border-white/20">
+                <div>
+                    <h2 class="font-extrabold text-xl tracking-wide text-brand-gold">ELIMIKA UISHI</h2>
+                    <p class="text-xs uppercase tracking-widest opacity-80">Tanzania</p>
+                </div>
+            </div>
+            
+            <!-- Mid Empowerment Slogan & Slideshow Text -->
+            <div class="my-auto space-y-8 pr-6">
+                <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-brand-gold/20 border border-brand-gold/30 text-brand-goldLight text-xs font-semibold uppercase tracking-wider">
+                    <i class="fa-solid fa-seedling"></i> Uwezeshaji wa Wanawake / Women Empowerment
+                </div>
+                
+                <h1 class="text-4xl xl:text-5xl font-extrabold leading-tight tracking-tight">
+                    Kujitambua • Kujithamini <br><span class="text-brand-gold">Kujisimamia</span>
+                </h1>
+                
+                <!-- Dynamic text that corresponds to the background slider -->
+                <div class="h-32 flex items-start">
+                    <div id="quote-container" class="transition-all duration-700 transform translate-y-0 opacity-100">
+                        <p id="quote-text" class="text-lg italic font-light text-gray-200">
+                            "Mwanamke akijitambua na kujithamini, anaweza kusimama na kubadilisha maisha yake pamoja na jamii inayomzunguka."
+                        </p>
+                        <p id="quote-author" class="text-sm font-semibold text-brand-gold mt-3">
+                            - Elimika Uishi Tanzania
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Custom slide dots indicators -->
+                <div class="flex gap-2">
+                    <span class="dot w-8 h-2 rounded-full bg-brand-gold transition-all duration-300"></span>
+                    <span class="dot w-2 h-2 rounded-full bg-white/40 transition-all duration-300"></span>
+                    <span class="dot w-2 h-2 rounded-full bg-white/40 transition-all duration-300"></span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Right Side: The Registration Form Container -->
+        <div class="lg:col-span-7 flex flex-col items-center justify-center p-4 sm:p-8 lg:p-12 overflow-y-auto max-h-screen">
+            
+            <!-- Form Card -->
+            <div class="w-full max-w-2xl bg-brand-cream/95 backdrop-blur-md rounded-2xl shadow-2xl border border-white/30 overflow-hidden flex flex-col my-4 lg:my-0">
+                
+                <!-- Header with logo (Mobile Only) and Form Title -->
+                <div class="bg-brand-green p-6 text-white text-center relative overflow-hidden">
+                    <div class="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(181,137,51,0.2),transparent_60%)]"></div>
+                    
+                    <!-- Mobile Logo -->
+                    <div class="flex lg:hidden flex-col items-center justify-center mb-4">
+                        <img src="logo.png" alt="Logo" class="h-16 w-auto bg-white/95 p-1.5 rounded-lg mb-2">
+                        <h2 class="text-lg font-bold tracking-wider text-brand-gold">ELIMIKA UISHI TANZANIA</h2>
+                    </div>
+
+                    <h1 class="text-2xl font-bold tracking-tight">Fomu ya Usajili <span class="font-light text-brand-gold">/ Registration Form</span></h1>
+                    <p class="text-xs text-gray-300 mt-2 tracking-wide">Tafadhali jaza taarifa zako kwa usahihi kukamilisha usajili wako.</p>
+                    
+                    <!-- Form Language Switcher -->
+                    <div class="absolute top-4 right-4 flex items-center gap-1 bg-black/20 hover:bg-black/30 rounded-full px-3 py-1 cursor-pointer transition-all border border-white/10" id="lang-toggle" onclick="toggleLanguage()">
+                        <i class="fa-solid fa-globe text-brand-gold text-xs"></i>
+                        <span class="text-xs font-semibold uppercase tracking-wider" id="lang-label">English</span>
+                    </div>
+                </div>
+
+                <!-- Step Progress Bar Indicator -->
+                <div class="bg-brand-creamDark/80 px-6 py-4 border-b border-gray-200">
+                    <div class="flex justify-between items-center text-xs font-semibold text-gray-500 uppercase tracking-wider mb-2">
+                        <span id="step-name">Hatua ya 1: Taarifa Binafsi</span>
+                        <span id="step-progress">25% Imekamilika</span>
+                    </div>
+                    <div class="w-full bg-gray-200 rounded-full h-2 overflow-hidden">
+                        <div id="progress-bar" class="bg-brand-green h-full rounded-full transition-all duration-500 ease-out" style="width: 25%"></div>
+                    </div>
+                </div>
+
+                <!-- Main Form (Targeting Formspree) -->
+                <!-- Note: The form action is set to a placeholder, Javascript will submit it dynamically -->
+                <form id="regForm" action="https://formspree.io/f/xoqogypv" method="POST" enctype="multipart/form-data" class="flex-grow p-6 sm:p-8 space-y-6">
+                    
+                    <!-- STEP 1: Taarifa Binafsi / Personal Information -->
+                    <div id="step-1-content" class="step-content space-y-6 transition-all duration-300">
+                        <div class="border-b border-gray-200 pb-3">
+                            <h3 class="text-lg font-bold text-brand-green flex items-center gap-2">
+                                <i class="fa-solid fa-user-gear text-brand-gold"></i>
+                                <span class="sw-text">Taarifa Binafsi</span>
+                                <span class="en-text hidden">Personal Information</span>
+                            </h3>
+                        </div>
+
+                        <!-- Full Name -->
+                        <div class="space-y-1">
+                            <label for="fullName" class="block text-sm font-semibold text-gray-700">
+                                <span class="sw-text">Jina Kamili <span class="text-red-500">*</span></span>
+                                <span class="en-text hidden">Full Name <span class="text-red-500">*</span></span>
+                            </label>
+                            <div class="relative rounded-lg shadow-sm">
+                                <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-gray-400">
+                                    <i class="fa-regular fa-user"></i>
+                                </div>
+                                <input type="text" name="Jina_Kamili" id="fullName" required placeholder="Mf. Halima Ramadhani" 
+                                    class="block w-full pl-10 pr-3 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-green focus:border-brand-green bg-white text-gray-900 transition-all placeholder-gray-400">
+                            </div>
+                        </div>
+
+                        <!-- Age & Gender Grid -->
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <!-- Age -->
+                            <div class="space-y-1">
+                                <label for="age" class="block text-sm font-semibold text-gray-700">
+                                    <span class="sw-text">Umri (Miaka) <span class="text-red-500">*</span></span>
+                                    <span class="en-text hidden">Age (Years) <span class="text-red-500">*</span></span>
+                                </label>
+                                <div class="relative rounded-lg shadow-sm">
+                                    <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-gray-400">
+                                        <i class="fa-regular fa-calendar"></i>
+                                    </div>
+                                    <input type="number" name="Umri" id="age" required min="15" max="100" placeholder="Mf. 28" 
+                                        class="block w-full pl-10 pr-3 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-green focus:border-brand-green bg-white text-gray-900 transition-all placeholder-gray-400">
+                                </div>
+                            </div>
+
+                            <!-- Gender -->
+                            <div class="space-y-1">
+                                <label for="gender" class="block text-sm font-semibold text-gray-700">
+                                    <span class="sw-text">Jinsia <span class="text-red-500">*</span></span>
+                                    <span class="en-text hidden">Gender <span class="text-red-500">*</span></span>
+                                </label>
+                                <div class="relative rounded-lg shadow-sm">
+                                    <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-gray-400">
+                                        <i class="fa-solid fa-venus-mars"></i>
+                                    </div>
+                                    <select name="Jinsia" id="gender" required 
+                                        class="block w-full pl-10 pr-3 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-green focus:border-brand-green bg-white text-gray-900 transition-all cursor-pointer">
+                                        <option value="" disabled selected class="sw-text">Chagua Jinsia</option>
+                                        <!-- Note: Swahili first, English after -->
+                                        <option value="Mwanamke">Mwanamke / Female</option>
+                                        <option value="Mwanaume">Mwanaume / Male</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Residential Location -->
+                        <div class="space-y-1">
+                            <label for="residentialLocation" class="block text-sm font-semibold text-gray-700">
+                                <span class="sw-text">Mahali Unapoishi (Mkoa na Wilaya) <span class="text-red-500">*</span></span>
+                                <span class="en-text hidden">Residential Location (Region & District) <span class="text-red-500">*</span></span>
+                            </label>
+                            <div class="relative rounded-lg shadow-sm">
+                                <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-gray-400">
+                                    <i class="fa-solid fa-map-pin"></i>
+                                </div>
+                                <input type="text" name="Mahali_Anapoishi" id="residentialLocation" required placeholder="Mf. Dar es Salaam, Temeke" 
+                                    class="block w-full pl-10 pr-3 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-green focus:border-brand-green bg-white text-gray-900 transition-all placeholder-gray-400">
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <!-- STEP 2: Shughuli za Kiuchumi / Business Details -->
+                    <div id="step-2-content" class="step-content space-y-6 hidden transition-all duration-300">
+                        <div class="border-b border-gray-200 pb-3">
+                            <h3 class="text-lg font-bold text-brand-green flex items-center gap-2">
+                                <i class="fa-solid fa-briefcase text-brand-gold"></i>
+                                <span class="sw-text">Shughuli za Kiuchumi</span>
+                                <span class="en-text hidden">Business & Economic Activity</span>
+                            </h3>
+                        </div>
+
+                        <!-- Business Type Dropdown -->
+                        <div class="space-y-1">
+                            <label for="businessType" class="block text-sm font-semibold text-gray-700">
+                                <span class="sw-text">Biashara Unayofanya <span class="text-red-500">*</span></span>
+                                <span class="en-text hidden">Type of Business You Do <span class="text-red-500">*</span></span>
+                            </label>
+                            <div class="relative rounded-lg shadow-sm">
+                                <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-gray-400">
+                                    <i class="fa-solid fa-store"></i>
+                                </div>
+                                <select name="Biashara_Anayofanya" id="businessType" required onchange="handleBusinessTypeChange()"
+                                    class="block w-full pl-10 pr-3 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-green focus:border-brand-green bg-white text-gray-900 transition-all cursor-pointer">
+                                    <option value="" disabled selected class="sw-text">Chagua Aina ya Biashara</option>
+                                    <option value="Upishi na Chakula">Upishi na Chakula / Catering & Food Vending</option>
+                                    <option value="Ushonaji na Mavazi">Ushonaji na Ubunifu wa Mavazi / Tailoring & Fashion</option>
+                                    <option value="Uokaji na Vitafunio">Uokaji na Vitafunio / Baking & Pastries</option>
+                                    <option value="Duka la Rejareja">Duka la Rejareja / Retail Store</option>
+                                    <option value="Kilimo na Ufugaji">Kilimo na Ufugaji / Farming & Animal Husbandry</option>
+                                    <option value="Nyingine">Nyingine (Tafadhali Taja) / Other (Please Specify)</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <!-- Conditional Custom Business Input -->
+                        <div id="customBusinessContainer" class="space-y-1 hidden transition-all duration-300">
+                            <label for="customBusiness" class="block text-sm font-semibold text-gray-700">
+                                <span class="sw-text">Taja Aina ya Biashara Nyingine <span class="text-red-500">*</span></span>
+                                <span class="en-text hidden">Specify Other Business Type <span class="text-red-500">*</span></span>
+                            </label>
+                            <div class="relative rounded-lg shadow-sm">
+                                <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-gray-400">
+                                    <i class="fa-solid fa-pen-clip"></i>
+                                </div>
+                                <input type="text" name="Biashara_Nyingine_Maelezo" id="customBusiness" placeholder="Mf. Utengenezaji wa Sabuni / Soap making" 
+                                    class="block w-full pl-10 pr-3 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-green focus:border-brand-green bg-white text-gray-900 transition-all placeholder-gray-400">
+                            </div>
+                        </div>
+
+                        <!-- Business Location -->
+                        <div class="space-y-1">
+                            <label for="businessLocation" class="block text-sm font-semibold text-gray-700">
+                                <span class="sw-text">Mahali Unapofanyia Biashara <span class="text-red-500">*</span></span>
+                                <span class="en-text hidden">Location of Business Operations <span class="text-red-500">*</span></span>
+                            </label>
+                            <div class="relative rounded-lg shadow-sm">
+                                <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-gray-400">
+                                    <i class="fa-solid fa-location-crosshairs"></i>
+                                </div>
+                                <input type="text" name="Mahali_Anapofanyia_Biashara" id="businessLocation" required placeholder="Mf. Soko la Kariakoo, Dar es Salaam" 
+                                    class="block w-full pl-10 pr-3 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-green focus:border-brand-green bg-white text-gray-900 transition-all placeholder-gray-400">
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <!-- STEP 3: Utambulisho na Picha / ID & Documentation -->
+                    <div id="step-3-content" class="step-content space-y-6 hidden transition-all duration-300">
+                        <div class="border-b border-gray-200 pb-3">
+                            <h3 class="text-lg font-bold text-brand-green flex items-center gap-2">
+                                <i class="fa-solid fa-address-card text-brand-gold"></i>
+                                <span class="sw-text">Utambulisho na Nyaraka</span>
+                                <span class="en-text hidden">Identification & Documents</span>
+                            </h3>
+                        </div>
+
+                        <!-- ID Type Dropdown -->
+                        <div class="space-y-1">
+                            <label for="idType" class="block text-sm font-semibold text-gray-700">
+                                <span class="sw-text">Aina ya Kitambulisho <span class="text-red-500">*</span></span>
+                                <span class="en-text hidden">Type of Identification <span class="text-red-500">*</span></span>
+                            </label>
+                            <div class="relative rounded-lg shadow-sm">
+                                <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-gray-400">
+                                    <i class="fa-regular fa-id-card"></i>
+                                </div>
+                                <select name="Aina_Ya_Kitambulisho" id="idType" required onchange="handleIdTypeChange()"
+                                    class="block w-full pl-10 pr-3 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-green focus:border-brand-green bg-white text-gray-900 transition-all cursor-pointer">
+                                    <option value="" disabled selected class="sw-text">Chagua Kitambulisho</option>
+                                    <option value="NIDA">NIDA (National ID Card)</option>
+                                    <option value="PASSPORT">PASIPOTI (Passport)</option>
+                                    <option value="LESENI YA UDEREVA">LESENI YA UDEREVA (Driver's License)</option>
+                                    <option value="MPIGA KURA">KITAMBULISHO CHA MPIGA KURA (Voter ID)</option>
+                                    <option value="BARUA YA SERIKALI YA MTAA">BARUA YA SERIKALI YA MTAA (Local Government Letter)</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <!-- ID Number Input (Conditional: Disappears if Local Gov Letter is chosen) -->
+                        <div id="idNumberContainer" class="space-y-1 transition-all duration-300">
+                            <label for="idNumber" class="block text-sm font-semibold text-gray-700">
+                                <span class="sw-text">Namba ya Kitambulisho <span class="text-red-500">*</span></span>
+                                <span class="en-text hidden">ID Number <span class="text-red-500">*</span></span>
+                            </label>
+                            <div class="relative rounded-lg shadow-sm">
+                                <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-gray-400">
+                                    <i class="fa-solid fa-fingerprint"></i>
+                                </div>
+                                <input type="text" name="Namba_Ya_Kitambulisho" id="idNumber" placeholder="Mf. 19900101-XXXXX-XXXXX-XX" 
+                                    class="block w-full pl-10 pr-3 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-green focus:border-brand-green bg-white text-gray-900 transition-all placeholder-gray-400">
+                            </div>
+                        </div>
+
+                        <!-- Local Government Letter Upload (Conditional: Appears only if Local Gov Letter is chosen) -->
+                        <div id="localGovLetterContainer" class="space-y-1 hidden transition-all duration-300">
+                            <label class="block text-sm font-semibold text-gray-700">
+                                <span class="sw-text">Pakia Barua ya Serikali ya Mtaa <span class="text-red-500">*</span></span>
+                                <span class="en-text hidden">Upload Local Government Letter <span class="text-red-500">*</span></span>
+                            </label>
+                            <p class="text-xs text-gray-500 pb-1">Ruhusa: PDF, JPG, PNG (Upeo 5MB)</p>
+                            
+                            <!-- Drag & Drop Zone -->
+                            <div class="flex justify-center px-6 pt-5 pb-6 border-2 border-dashed border-gray-300 rounded-lg hover:border-brand-green hover:bg-gray-50 transition-all relative cursor-pointer" onclick="document.getElementById('localGovLetterFile').click()">
+                                <div class="space-y-2 text-center">
+                                    <i class="fa-solid fa-file-pdf text-3xl text-gray-400 mb-2"></i>
+                                    <div class="flex text-sm text-gray-600 justify-center">
+                                        <span class="relative font-medium text-brand-green hover:underline">
+                                            <span class="sw-text">Chagua faili</span>
+                                            <span class="en-text hidden">Choose file</span>
+                                        </span>
+                                    </div>
+                                    <p class="text-xs text-gray-400" id="localGovLetterFileName">No file chosen</p>
+                                </div>
+                                <input id="localGovLetterFile" name="Barua_Ya_Serikali_Ya_Mtaa" type="file" accept=".pdf,image/png,image/jpeg" class="sr-only" onchange="handleFileChange('localGovLetterFile', 'localGovLetterFileName')">
+                            </div>
+                        </div>
+
+                        <!-- Passport Size Photo Upload (Always Visible and Required) -->
+                        <div class="space-y-1">
+                            <label class="block text-sm font-semibold text-gray-700">
+                                <span class="sw-text">Picha ya Pasi (Passport Size) <span class="text-red-500">*</span></span>
+                                <span class="en-text hidden">Passport Size Photo <span class="text-red-500">*</span></span>
+                            </label>
+                            <p class="text-xs text-gray-500 pb-1">Ruhusa: JPG, PNG pekee (Upeo 3MB)</p>
+                            
+                            <!-- Drag & Drop Zone -->
+                            <div class="flex justify-center px-6 pt-5 pb-6 border-2 border-dashed border-gray-300 rounded-lg hover:border-brand-green hover:bg-gray-50 transition-all relative cursor-pointer" onclick="document.getElementById('passportPhotoFile').click()">
+                                <div class="space-y-2 text-center">
+                                    <i class="fa-solid fa-camera-retro text-3xl text-gray-400 mb-2"></i>
+                                    <div class="flex text-sm text-gray-600 justify-center">
+                                        <span class="relative font-medium text-brand-green hover:underline">
+                                            <span class="sw-text">Chagua picha</span>
+                                            <span class="en-text hidden">Choose photo</span>
+                                        </span>
+                                    </div>
+                                    <p class="text-xs text-gray-400" id="passportPhotoFileName">No file chosen</p>
+                                </div>
+                                <input id="passportPhotoFile" name="Picha_Ya_Passport" type="file" accept="image/png,image/jpeg" class="sr-only" required onchange="handleFileChange('passportPhotoFile', 'passportPhotoFileName')">
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <!-- STEP 4: Mapitio na Kutuma / Review & Submit -->
+                    <div id="step-4-content" class="step-content space-y-6 hidden transition-all duration-300">
+                        <div class="border-b border-gray-200 pb-3">
+                            <h3 class="text-lg font-bold text-brand-green flex items-center gap-2">
+                                <i class="fa-solid fa-square-check text-brand-gold"></i>
+                                <span class="sw-text">Mapitio ya Taarifa</span>
+                                <span class="en-text hidden">Review Your Details</span>
+                            </h3>
+                        </div>
+
+                        <!-- Review Table -->
+                        <div class="bg-brand-creamDark border border-gray-200 rounded-lg overflow-hidden text-sm divide-y divide-gray-200">
+                            <!-- Name -->
+                            <div class="grid grid-cols-3 p-3">
+                                <div class="font-semibold text-gray-600 sw-text">Jina Kamili</div>
+                                <div class="font-semibold text-gray-600 en-text hidden">Full Name</div>
+                                <div class="col-span-2 text-gray-900" id="rev-fullName">-</div>
+                            </div>
+                            <!-- Age / Gender -->
+                            <div class="grid grid-cols-3 p-3">
+                                <div class="font-semibold text-gray-600 sw-text">Umri & Jinsia</div>
+                                <div class="font-semibold text-gray-600 en-text hidden">Age & Gender</div>
+                                <div class="col-span-2 text-gray-900"><span id="rev-age">-</span> Miaka, <span id="rev-gender">-</span></div>
+                            </div>
+                            <!-- Residence -->
+                            <div class="grid grid-cols-3 p-3">
+                                <div class="font-semibold text-gray-600 sw-text">Makazi</div>
+                                <div class="font-semibold text-gray-600 en-text hidden">Residence</div>
+                                <div class="col-span-2 text-gray-900" id="rev-residence">-</div>
+                            </div>
+                            <!-- Business -->
+                            <div class="grid grid-cols-3 p-3">
+                                <div class="font-semibold text-gray-600 sw-text">Biashara</div>
+                                <div class="font-semibold text-gray-600 en-text hidden">Business Type</div>
+                                <div class="col-span-2 text-gray-900"><span id="rev-business">-</span> (<span id="rev-businessLoc">-</span>)</div>
+                            </div>
+                            <!-- ID -->
+                            <div class="grid grid-cols-3 p-3">
+                                <div class="font-semibold text-gray-600 sw-text">Utambulisho</div>
+                                <div class="font-semibold text-gray-600 en-text hidden">Identification</div>
+                                <div class="col-span-2 text-gray-900">
+                                    <span id="rev-idType">-</span>: <span id="rev-idDetail">-</span>
+                                </div>
+                            </div>
+                            <!-- Photo -->
+                            <div class="grid grid-cols-3 p-3">
+                                <div class="font-semibold text-gray-600 sw-text">Picha ya Pasi</div>
+                                <div class="font-semibold text-gray-600 en-text hidden">Passport Photo</div>
+                                <div class="col-span-2 text-gray-900 text-xs italic" id="rev-passportPhoto">-</div>
+                            </div>
+                        </div>
+
+                        <!-- Agreement Checkbox -->
+                        <div class="relative flex items-start mt-4">
+                            <div class="flex items-center h-5">
+                                <input id="agreement" name="Mkataba_Kibali" type="checkbox" required
+                                    class="focus:ring-brand-green h-5 w-5 text-brand-green border-gray-300 rounded cursor-pointer transition-all">
+                            </div>
+                            <div class="ml-3 text-sm">
+                                <label for="agreement" class="font-medium text-gray-700 cursor-pointer">
+                                    <span class="sw-text">Nathibitisha kuwa taarifa nilizojaza hapo juu ni za kweli na sahihi. <span class="text-red-500">*</span></span>
+                                    <span class="en-text hidden">I certify that the information provided above is true and correct. <span class="text-red-500">*</span></span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <!-- Action Buttons -->
+                    <div class="flex items-center justify-between pt-6 border-t border-gray-200">
+                        <!-- Prev Button -->
+                        <button type="button" id="prev-btn" onclick="prevStep()" class="invisible flex items-center justify-center px-5 py-3 border border-gray-300 text-sm font-semibold rounded-lg text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-brand-green transition-all duration-200">
+                            <i class="fa-solid fa-arrow-left mr-2"></i>
+                            <span class="sw-text">Rudi</span>
+                            <span class="en-text hidden">Back</span>
+                        </button>
+                        
+                        <!-- Next / Submit Button -->
+                        <button type="button" id="next-btn" onclick="nextStep()" class="flex items-center justify-center px-6 py-3 border border-transparent text-sm font-semibold rounded-lg text-white bg-brand-green hover:bg-brand-greenLight shadow-lg focus:outline-none focus:ring-2 focus:ring-brand-gold transition-all duration-200 ml-auto">
+                            <span id="next-btn-text">
+                                <span class="sw-text">Endelea</span>
+                                <span class="en-text hidden">Continue</span>
+                            </span>
+                            <i class="fa-solid fa-arrow-right ml-2" id="next-btn-icon"></i>
+                        </button>
+                    </div>
+                </form>
+            </div>
+            
+            <!-- Mobile & Desktop Footer under card -->
+            <div class="mt-6 text-center text-xs text-gray-200/90 space-y-2 max-w-md bg-brand-green/30 backdrop-blur-xs py-3 px-6 rounded-xl border border-white/10 shadow-lg w-full">
+                <p class="font-bold tracking-wide sw-text">Mawasiliano / Contacts:</p>
+                <p class="font-bold tracking-wide en-text hidden">Mawasiliano / Contacts:</p>
+                <div class="flex flex-wrap justify-center items-center gap-x-6 gap-y-2">
+                    <a href="tel:0685717303" class="hover:text-brand-gold transition-colors flex items-center gap-1 font-semibold">
+                        <i class="fa-solid fa-phone text-brand-gold"></i> 0685717303
+                    </a>
+                    <a href="tel:0718989847" class="hover:text-brand-gold transition-colors flex items-center gap-1 font-semibold">
+                        <i class="fa-solid fa-phone text-brand-gold"></i> 0718 989 847
+                    </a>
+                    <a href="https://wa.me/255685717303" target="_blank" class="hover:text-green-300 transition-colors flex items-center gap-1 font-semibold text-green-400">
+                        <i class="fa-brands fa-whatsapp text-green-400 text-sm"></i> WhatsApp: 0685717303
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Success Modal Overlay -->
+    <div id="successModal" class="fixed inset-0 z-50 overflow-y-auto hidden flex items-center justify-center p-4 bg-black/75 backdrop-blur-sm transition-all duration-300">
+        <div class="relative bg-brand-cream max-w-md w-full rounded-2xl p-8 text-center border-2 border-brand-gold shadow-2xl transform scale-95 transition-all duration-300">
+            <!-- Logo inside modal -->
+            <div class="mx-auto flex items-center justify-center h-16 w-16 rounded-full bg-brand-green/10 border border-brand-green/20 mb-4">
+                <i class="fa-solid fa-check-double text-3xl text-brand-green"></i>
+            </div>
+            
+            <h3 class="text-2xl font-extrabold text-brand-green mb-2">
+                <span class="sw-text">Usajili Umekamilika!</span>
+                <span class="en-text hidden">Registration Successful!</span>
+            </h3>
+            
+            <p class="text-sm text-gray-600 mb-6 leading-relaxed">
+                <span class="sw-text">Ahsante sana kwa kujisajili na <strong>Elimika Uishi Tanzania</strong>. Taarifa zako zimepokelewa kwa mafanikio. Tutawasiliana nawe hivi karibuni.</span>
+                <span class="en-text hidden">Thank you for registering with <strong>Elimika Uishi Tanzania</strong>. Your details have been received successfully. We will get in touch with you soon.</span>
+            </p>
+            
+            <button onclick="closeSuccessModal()" class="w-full py-3 px-4 rounded-lg bg-brand-green hover:bg-brand-greenLight text-white font-bold tracking-wide transition-all shadow-md focus:outline-none">
+                <span class="sw-text">Funga</span>
+                <span class="en-text hidden">Close</span>
+            </button>
+        </div>
+    </div>
+
+    <!-- Error Modal Overlay -->
+    <div id="errorModal" class="fixed inset-0 z-50 overflow-y-auto hidden flex items-center justify-center p-4 bg-black/75 backdrop-blur-sm transition-all duration-300">
+        <div class="relative bg-white max-w-md w-full rounded-2xl p-8 text-center border-2 border-red-500 shadow-2xl transform scale-95 transition-all duration-300">
+            <div class="mx-auto flex items-center justify-center h-16 w-16 rounded-full bg-red-100 mb-4 text-red-500">
+                <i class="fa-solid fa-triangle-exclamation text-3xl"></i>
+            </div>
+            
+            <h3 class="text-2xl font-extrabold text-red-700 mb-2">
+                <span class="sw-text">Hitilafu Imefanyika!</span>
+                <span class="en-text hidden">An Error Occurred!</span>
+            </h3>
+            
+            <p class="text-sm text-gray-600 mb-6 leading-relaxed" id="errorMessageText">
+                <span class="sw-text">Haikuwezekana kutuma taarifa zako kwa sasa. Tafadhali angalia mtandao wako na ujaribu tena baadae.</span>
+                <span class="en-text hidden">Could not submit your information at this time. Please check your internet connection and try again.</span>
+            </p>
+            
+            <button onclick="closeErrorModal()" class="w-full py-3 px-4 rounded-lg bg-red-600 hover:bg-red-700 text-white font-bold tracking-wide transition-all shadow-md focus:outline-none">
+                <span class="sw-text">Jaribu Tena</span>
+                <span class="en-text hidden">Try Again</span>
+            </button>
+        </div>
+    </div>
+
+    <!-- Custom submit loader overlay -->
+    <div id="loadingOverlay" class="fixed inset-0 z-50 hidden flex items-center justify-center bg-black/50 backdrop-blur-xs transition-all duration-300">
+        <div class="flex flex-col items-center justify-center p-6 bg-white rounded-xl shadow-lg border border-gray-200">
+            <div class="loader ease-linear rounded-full border-4 border-t-4 border-gray-200 h-12 w-12 mb-4"></div>
+            <p class="text-sm font-semibold text-gray-700 sw-text">Inatuma taarifa... Tafadhali subiri</p>
+            <p class="text-sm font-semibold text-gray-700 en-text hidden">Submitting details... Please wait</p>
+        </div>
+    </div>
+
+    <!-- Include external JS logic -->
+    <script src="app.js"></script>
+</body>
+</html>
