@@ -68,19 +68,13 @@
             100% { transform: rotate(360deg); }
         }
 
-        /* Custom scrollbar for glassmorphic card */
-        ::-webkit-scrollbar {
-            width: 6px;
+        /* Hide scrollbars globally but keep functionality */
+        * {
+            -ms-overflow-style: none;  /* IE and Edge */
+            scrollbar-width: none;  /* Firefox */
         }
-        ::-webkit-scrollbar-track {
-            background: rgba(255, 255, 255, 0.1);
-        }
-        ::-webkit-scrollbar-thumb {
-            background: rgba(27, 67, 46, 0.2);
-            border-radius: 3px;
-        }
-        ::-webkit-scrollbar-thumb:hover {
-            background: rgba(27, 67, 46, 0.4);
+        *::-webkit-scrollbar {
+            display: none; /* Chrome, Safari and Opera */
         }
     </style>
 </head>
